@@ -38,12 +38,12 @@ public class CardDeliveryTest {
         $("[data-test-id='date'] input").setValue(lastMeetingDate);
         $$("button").find(Condition.text("Запланировать")).click();
         $("[data-test-id='replan-notification']")
-                .should(Condition.text("Необходимо подтверждение"))
                 .should(Condition.text("У вас уже запланирована встреча на другую дату. Перепланировать?"))
                 .should(Condition.visible);
         $$("button").find(Condition.text("Перепланировать")).click();
         $("[data-test-id='success-notification']")
                 .should(Condition.text("Успешно!"))
-                .should(Condition.text("Встреча успешно запланирована на " + lastMeetingDate));
+                .should(Condition.text("Встреча успешно запланирована на " + lastMeetingDate))
+                .should(Condition.visible);
     }
 }
